@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dream Lab - Creator</title>
+    <style>
+        :root { --bg: #c5b395; --text: #1a1a1a; }
+        body { 
+            background: #222; color: #eee; font-family: 'Courier New', monospace; 
+            display: flex; gap: 20px; padding: 20px; height: 100vh; overflow: hidden;
+        }
+        /* Form Side */
+        .form-side { width: 40%; overflow-y: auto; padding-right: 10px; }
+        .field { margin-bottom: 15px; }
+        label { display: block; font-size: 0.8rem; color: #888; margin-bottom: 5px; }
+        input, textarea, select { 
+            width: 100%; background: #333; border: 1px solid #444; 
+            color: white; padding: 8px; font-family: inherit;
+        }
+        /* Preview Side */
+        .preview-side { 
+            width: 60%; background: var(--bg); color: var(--text); 
+            padding: 40px; display: flex; gap: 30px; overflow-y: auto;
+            border: 4px solid #444; transition: 0.3s;
+        }
+        .preview-side h1 { font-size: 1.1rem; margin-top: 0; }
+        .inventory { font-size: 0.8rem; opacity: 0.8; }
+        .story { white-space: pre-wrap; font-size: 0.9rem; }
+        
+        /* Modal for Output */
+        #output-modal {
+            display: none; position: fixed; top: 50%; left: 50%; 
+            transform: translate(-50%, -50%); background: #111; padding: 20px;
+            border: 2px solid #555; width: 60%; box-shadow: 0 0 50px black;
+        }
+        pre { background: #000; padding: 15px; overflow: auto; max-height: 400px; font-size: 0.8rem; }
+        button { background: #eee; color: #000; border: none; padding: 10px 20px; cursor: pointer; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="form-side">
+    <h2>Dream Lab</h2>
+    <div class="field">
+        <label>Unique ID (slug)</label>
+        <input type="text" id="id" placeholder="e.g. villa-v2" oninput="update()">
+    </div>
+    <div class="field">
+        <label>Theme</label>
+        <select id="theme-select" onchange="update()">
+            <option value="1">1: Parchment</option>
+            <option value="2">2: Terminal Green</option>
+            <option value="3">3: Amber Glow</option>
+            <option value="4">4: C64 Blue</option>
+            <option value="5">5: Paper White</option>
+            <option value="6">6: Win95 Teal</option>
+			<option value="7">7: Gameboy Pea Soup</option>
+			<option value="8">8: Gameboy Pocket Pastel</option>
+			<option value="9">9: Virtual Boy Red</option>
+        </select>
+    </div>
+    <div class="field">
+        <label>Title</label>
+        <input type="text" id="title" placeholder="Dream Title" oninput="update()">
+    </div>
+    <div class="field">
+        <label>Image Filename</label>
+        <input type="text" id="img" placeholder="image.jpg" oninput="update()">
+    </div>
+    <div class="field">
+        <label>Inventory (one per line)</label>
+        <textarea id="inv" rows="4" oninput="update()"></textarea>
+    </div>
+    <div class="field">
+        <label>Story Content</label>
+        <textarea id="content" rows="8" oninput="update()"></textarea>
+    </div>
+    <div class="field">
+        <label>Footer Note</label>
+        <input type="text" id="footer" oninput="update()">
+    </div>
+    <button onclick="generateJSON()">GENERATE JSON BLOCK</button>
+</div>
+
+<div class="preview-side" id="preview">
+    <div style="width: 200px; flex-shrink: 0;">
+        <h1 id="p-title">Title</h1>
+        <div style="width: 100%; height: 120px; background: #888; display: flex; align-items: center; justify-content: center; font-size: 10px; border: 1px solid var(--text);">[IMAGE PREVIEW]</div>
+        <div id="p-inv" class="inventory" style="margin-top: 15px;"></div>
+    </div>
+    <div>
+        <div id="p-content" class="story"></div>
+        <div id="p-footer" style="margin-top: 20px; opacity: 0.6; font-style: italic;"></div>
+    </div>
+</div>
+
+<div id="output-modal">
+    <h3>Copy this into dreams.json:</h3>
+    <pre id="json-display"></pre>
+    <button onclick="copyJSON()">COPY TO CLIPPED</button>
+    <button onclick="document.getElementById('output-modal').style.display='none'">CLOSE</button>
+</div>
+
+<script>
+    const THEMES = {
+        "1": { bg: "#c5b395", text: "#1a1a1a" },
+        "2": { bg: "#000500", text: "#00ff41" },
+        "3": { bg: "#120a00", text: "#ffb000" },
+        "4": { bg: "#4040e0", text: "#a0a0ff" },
+        "5": { bg: "#ffffff", text: "#222222" },
+        "6": { bg: "#008080", text: "#ffffff" },
+		"7": { bg: "#9bbc0f", text: "#0f380f" }, // Gameboy Pea Soup
+    "8": { bg: "#f8d8d8", text: "#383880" }, // Gameboy Pocket Pastel
+    "9": { bg: "#000000", text: "#ff0000" }  // Virtual Boy Red
+    };
+
+    function update() {
+        const theme = THEMES[document.getElementById('theme-select').value];
+        document.documentElement.style.setProperty('--bg', theme.bg);
+        document.documentElement.style.setProperty('--text', theme.text);
+
+        document.getElementById('p-title').innerText = document.getElementById('title').value || "Title";
+        document.getElementById('p-content').innerText = document.getElementById('content').value || "The story begins...";
+        document.getElementById('p-footer').innerText = document.getElementById('footer').value;
+
+        const invLines = document.getElementById('inv').value.split('\n');
+        document.getElementById('p-inv').innerHTML = invLines.map(line => `<div>${line}</div>`).join('');
+    }
+
+    function generateJSON() {
+        const id = document.getElementById('id').value || "untitled";
+        const entry = {
+            [id]: {
+                "title": document.getElementById('title').value,
+                "theme": document.getElementById('theme-select').value,
+                "image": "images/" + document.getElementById('img').value,
+                "left_panel": {
+                    "inventory": document.getElementById('inv').value.split('\n').filter(l => l),
+                    "stats": new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
+                },
+                "right_panel": {
+                    "content": document.getElementById('content').value,
+                    "footer_note": document.getElementById('footer').value
+                },
+                "links": [{ "name": "home", "id": "tomodachi" }]
+            }
+        };
+
+        let str = JSON.stringify(entry, null, 2);
+        // Remove outer brackets so user can just paste it in
+        str = str.substring(1, str.length - 1).trim();
+        
+        document.getElementById('json-display').innerText = str + ",";
+        document.getElementById('output-modal').style.display = 'block';
+    }
+
+    function copyJSON() {
+        navigator.clipboard.writeText(document.getElementById('json-display').innerText);
+        alert("Copied! Paste this at the bottom of dreams.json (before the final closing brace)");
+    }
+    
+    update();
+</script>
+</body>
+</html>

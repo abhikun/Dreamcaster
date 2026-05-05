@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dreamcaster</title>
+    <style>
+        :root {
+            --bg: #c5b395;
+            --text: #1a1a1a;
+            --dim: rgba(26, 26, 26, 0.6);
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            line-height: 1.5;
+            /* Smooth transition for theme colors */
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        /* --- LEFT PANEL (ENVIRONMENT) --- */
+        aside {
+            width: 320px;
+            flex-shrink: 0;
+        }
+
+        #dream-image {
+            width: 100%;
+            height: auto;
+            border: 1px solid var(--dim);
+            filter: grayscale(1) contrast(1.2) sepia(0.5);
+            image-rendering: pixelated;
+            margin-bottom: 20px;
+        }
+
+        .inventory-item {
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .stats {
+            margin-top: 30px;
+            font-size: 0.8rem;
+            text-transform: lowercase;
+            border-top: 1px solid var(--dim);
+            padding-top: 10px;
+        }
+
+        /* --- RIGHT PANEL (NARRATIVE) --- */
+        main {
+            max-width: 650px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 1.1rem;
+            margin: 0 0 20px 0;
+            font-weight: normal;
+        }
+
+        #story-content {
+            white-space: pre-wrap; /* Respects your line breaks in JSON */
+            margin-bottom: 30px;
+        }
+
+        #footer-note {
+            font-style: italic;
+            opacity: 0.7;
+            margin-bottom: 40px;
+        }
+
+        /* --- NAVIGATION --- */
+        .nav-links {
+            margin-top: auto;
+            padding-top: 20px;
+        }
+
+        .link-tag {
+            display: inline-block;
+            text-decoration: none;
+            color: var(--text);
+            border: 1px dotted var(--text);
+            padding: 2px 6px;
+            margin-right: 10px;
+            font-size: 0.85rem;
+        }
+
+        .link-tag:hover {
+            background: var(--text);
+            color: var(--bg);
+        }
+
+        .wander-btn {
+            margin-top: 40px;
+            opacity: 0.4;
+            font-size: 0.7rem;
+            text-decoration: none;
+            color: var(--text);
+        }
+    </style>
+</head>
+<body>
+
+    <aside>
+        <h1 id="title"></h1>
+        <canvas id="dream-canvas" style="width: 100%; border: 1px solid var(--dim); image-rendering: pixelated; margin-bottom: 20px;"></canvas>
+        <div id="inventory-list"></div>
+        <div id="stats" class="stats"></div>
+    </aside>
+
+    <main>
+        <div id="story-content"></div>
+        <div id="footer-note"></div>
+        <div class="nav-links" id="links-container"></div>
+        <a href="index.html" class="wander-btn">[ WANDER TO RANDOM DREAM ]</a>
+    </main>
+
+    <script>
+// 1. THE PREDEFINED THEMES INDEX
+const THEMES = {
+    "1": { bg: "#c5b395", text: "#1a1a1a" }, // The "Villa" Parchment
+    "2": { bg: "#000500", text: "#00ff41" }, // Terminal Green (Phosphor)
+    "3": { bg: "#120a00", text: "#ffb000" }, // Amber Glow
+    "4": { bg: "#4040e0", text: "#a0a0ff" }, // Commodore 64 Blue
+    "5": { bg: "#ffffff", text: "#222222" }, // E-Ink / Paper White
+    "6": { bg: "#008080", text: "#ffffff" },  // Windows 95 Teal
+	"7": { bg: "#9bbc0f", text: "#0f380f" }, // Gameboy Pea Soup
+    "8": { bg: "#f8d8d8", text: "#383880" }, // Gameboy Pocket Pastel
+    "9": { bg: "#000000", text: "#ff0000" }  // Virtual Boy Red
+};
+
+async function init() {
+    const params = new URLSearchParams(window.location.search);
+    let dreamId = params.get('dream');
+
+    try {
+        const response = await fetch('dreams.json');
+        const database = await response.json();
+
+        if (!dreamId || !database[dreamId]) {
+            const keys = Object.keys(database);
+            dreamId = keys[Math.floor(Math.random() * keys.length)];
+        }
+
+        const data = database[dreamId];
+
+        // 2. THEME LOOKUP LOGIC
+        // This checks if 'theme' in JSON is a name (like "1") or an object.
+        let theme = THEMES["1"]; // Default fallback
+        if (typeof data.theme === "string" && THEMES[data.theme]) {
+            theme = THEMES[data.theme];
+        } else if (typeof data.theme === "object") {
+            theme = data.theme; // Allows you to still do custom colors if you want
+        }
+
+        const bgColor = theme.bg;
+        const textColor = theme.text;
+        
+        document.documentElement.style.setProperty('--bg', bgColor);
+        document.documentElement.style.setProperty('--text', textColor);
+        document.documentElement.style.setProperty('--dim', textColor + '99');
+
+        // 3. POPULATE TEXT FIELDS
+        document.getElementById('title').innerText = data.title;
+        document.getElementById('stats').innerText = data.left_panel.stats;
+        document.getElementById('story-content').innerText = data.right_panel.content;
+        document.getElementById('footer-note').innerText = data.right_panel.footer_note;
+
+        // 4. POPULATE LISTS
+        const invList = document.getElementById('inventory-list');
+        invList.innerHTML = '';
+        data.left_panel.inventory.forEach(item => {
+            const p = document.createElement('div');
+            p.className = 'inventory-item';
+            p.innerText = item;
+            invList.appendChild(p);
+        });
+
+        const container = document.getElementById('links-container');
+        container.innerHTML = '';
+        data.links.forEach(link => {
+            const a = document.createElement('a');
+            a.className = 'link-tag';
+            a.href = `?dream=${link.id}`;
+            a.innerText = `${link.name} ↗`;
+            container.appendChild(a);
+        });
+
+        posterizeImage(data.image, bgColor, textColor);
+
+    } catch (err) {
+        console.error("Initialization error:", err);
+    }
+}
+
+// ... keep posterizeImage and hexToRgb functions from the previous step ...
+
+function posterizeImage(source, bg, text) {
+    const canvas = document.getElementById('dream-canvas');
+    const ctx = canvas.getContext('2d');
+    const img = new Image();
+    img.crossOrigin = "Anonymous"; 
+    img.src = source;
+
+    img.onload = () => {
+        // Set canvas size to match image aspect ratio
+        const displayWidth = 320; 
+        const scale = displayWidth / img.width;
+        canvas.width = displayWidth;
+        canvas.height = img.height * scale;
+
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+        const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const pixels = imgData.data;
+
+        // Convert hex to RGB for processing
+        const rgbText = hexToRgb(text);
+        const rgbBg = hexToRgb(bg);
+        const rgbMid = {
+            r: (rgbText.r + rgbBg.r) / 2,
+            g: (rgbText.g + rgbBg.g) / 2,
+            b: (rgbText.b + rgbBg.b) / 2
+        };
+
+        for (let i = 0; i < pixels.length; i += 4) {
+            // Get brightness (grayscale value)
+            const avg = (pixels[i] + pixels[i + 1] + pixels[i + 2]) / 3;
+            
+            let chosenColor;
+            if (avg < 85) {
+                chosenColor = rgbText; // Darkest areas match text color
+            } else if (avg < 170) {
+                chosenColor = rgbMid;  // Mid-tones
+            } else {
+                chosenColor = rgbBg;   // Highlights match background
+            }
+
+            pixels[i] = chosenColor.r;
+            pixels[i+1] = chosenColor.g;
+            pixels[i+2] = chosenColor.b;
+        }
+        ctx.putImageData(imgData, 0, 0);
+    };
+}
+
+function hexToRgb(hex) {
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+    } : { r: 0, g: 0, b: 0 };
+}
+
+init();
+    </script>
+</body>
+</html>

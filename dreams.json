@@ -1,0 +1,107 @@
+{
+  "tomodachi": {
+    "title": "Tomodachi life",
+    "theme": "1",
+    "image": "images/image_1cc1dd.jpg",
+    "left_panel": {
+      "inventory": [
+        "I am on the streets",
+        "There is a wedding hall here.",
+        "I know there's a recycling sweatshop behind the building",
+        "I see garbage strewn near the gutter."
+      ],
+      "stats": "Krishna Mandir, 2026"
+    },
+    "right_panel": {
+      "content": "Had a dream where some nintendo comfy game like tomodachi life had become super mainstream and lots of merch was made.\n\nThey all had nfc sensors and magnets, and people in third world countries had recycled its parts to make everyday things like clothes and paper plates.\n\nThen someone hacked into the amiibo network and started pulling people with super magnetism.",
+      "footer_note": "Ah, I knew this would happen."
+    },
+    "links": [
+      { "name": "orchards", "id": "orchards" },
+      { "name": "circuits", "id": "circuits" }
+    ]
+  },
+  "vibecoding": {
+    "title": "vibecoding",
+    "theme": "6",
+    "image": "images/orchard.jpg",
+    "left_panel": {
+      "inventory": [
+        "The interface is a slippery mobile keyboard.",
+        "The overengineering is palpable.",
+        "I am in the inner world's inner world"
+      ],
+      "stats": "14 March, 2026"
+    },
+    "right_panel": {
+      "content": "I had a dream where i was vibecoding and the ai started making personal attacks",
+      "footer_note": "This was like my paranoia dream where I showed the wikipedia entry for my fetishes"
+    },
+    "links": [
+      { "name": "return to villa", "id": "tomodachi" }
+    ]
+  },
+  "kaiju number 2": {
+    "title": "kaiju number 2",
+    "theme": "2",
+    "image": "images/mumbai.jpg",
+    "left_panel": {
+      "inventory": [
+        "I experience the world only from a screen",
+        "Distance is priority"
+      ],
+      "stats": "25 February, 2026"
+    },
+    "right_panel": {
+      "content": "Had a dream about people ai generating slop movies and that'd seeped into real life and mumbai was under attack by kaiju dinosaurs \n \nI was some national treasure under special protection who had to work only three hours a week",
+      "footer_note": "Mark Fisher ahh"
+    },
+    "links": [
+      { "name": "return to villa", "id": "tomodachi" }
+    ]
+  },
+  "Hellas": {
+    "title": "Hellas",
+    "theme": "3",
+    "image": "images/hellas.jpg",
+    "left_panel": {
+      "inventory": [
+        "is this a videogame"
+      ],
+      "stats": "5 May 2026"
+    },
+    "right_panel": {
+      "content": "I had dreams last night of screens full of lasers and projectiles and someone whispering Odysseus over and over",
+      "footer_note": "i namedrop Achilles and Patroclus to performative male"
+    },
+    "links": [
+      {
+        "name": "home",
+        "id": "tomodachi"
+      }
+    ]
+  },
+  "Japanese Nobel": {
+    "title": "Japanese Nobel",
+    "theme": "8",
+    "image": "images/weed.jpg",
+    "left_panel": {
+      "inventory": [
+        "Orientalist?",
+        "Fascist projection of a pure state, free from degeneracy?",
+        "I watched the party scene from Lost in Translation too"
+      ],
+      "stats": "5 May 2026"
+    },
+    "right_panel": {
+      "content": "Had a dream where nivi organized a nobel prize equivalent for Japanese residents in india. The winner had introduced weed to japan or some synthetic equivalent and nivi was already a pro at using it",
+      "footer_note": "Daily startup idea ahh dream"
+    },
+    "links": [
+      {
+        "name": "home",
+        "id": "tomodachi"
+      }
+    ]
+  }
+}
