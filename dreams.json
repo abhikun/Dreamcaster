@@ -143,8 +143,8 @@
     },
     "links": [
       {
-        "name": "home",
-        "id": "tomodachi"
+        "name": "Rivals burnout",
+        "id": "black panther"
       }
     ]
   },
@@ -177,11 +177,126 @@
       "inventory": [
         "I check to see if the grass is anime or pixelated"
       ],
-      "stats": "5 May 2026"
+      "stats": "10 April 2025"
     },
     "right_panel": {
       "content": "Had a dream where i got a machine and could listen to my pet typhlosion.\nWe were travelling together.\n\nMy typhlosion♀ was having trouble courting a male one so i used the pokemon speech machine to help",
       "footer_note": "No projection of second person desires here"
+    },
+    "links": [
+      {
+        "name": "home",
+        "id": "tomodachi"
+      }
+    ]
+  },
+  "keyboard": {
+    "title": "keyboard",
+    "theme": "1",
+    "image": "images/akuma.jpg",
+    "left_panel": {
+      "inventory": [
+        "I had seen this art installation once where they made a fight stick with only Akuma's \"ten\" kanji on it as the only button"
+      ],
+      "stats": "13 March 2025"
+    },
+    "right_panel": {
+      "content": "Had a dream where tan told me ac shadows is very good actually and then my keyboard changed to a posh one where each key is an oled display",
+      "footer_note": "AC Shadows is so bad as a story, what compelled them to decompress 12 days of historical events into a multi year epic"
+    },
+    "links": [
+      {
+        "name": "home",
+        "id": "tomodachi"
+      }
+    ]
+  },
+  "black panther": {
+    "title": "black panther",
+    "theme": "2",
+    "image": "images/wakanda.jpg",
+    "left_panel": {
+      "inventory": [
+        "Back in 2018 I was genuinely impressed by the Black Panther movie.",
+        "How even the most mainstream of kids movies were allowed to express thoughts that would get the average Bhakt pissbaby livid."
+      ],
+      "stats": "18 February 2025"
+    },
+    "right_panel": {
+      "content": "Had a dream where I was pretending to be black panther from Marvel Rivals and was fighting a tiny tiger. I kept throwing spears and dashing until my cooldowns ran out and then it bit my finger",
+      "footer_note": "I hate playing twitch-reaction up-close heroes. There is definitely a design problem in conveying presence in the hero-shooter engine "
+    },
+    "links": [
+      {
+        "name": "I lovehate marvel rivals",
+        "id": "Psylocke"
+      }
+    ]
+  },
+  "modder": {
+    "title": "modder",
+    "theme": "5",
+    "image": "images/modder.jpg",
+    "left_panel": {
+      "inventory": [
+        "tan and my modding dreams never came to fruition",
+        "he had a google play publishing co. called suttit tech",
+        "he had an app for math formulae"
+      ],
+      "stats": "5 February 2025"
+    },
+    "right_panel": {
+      "content": "Had a dream where i met some genius SE Asian guy who used his intellect to decompile and modify old games. Like a loving indian parent, I told tan to compare himself with him, \"see? How he has made good use of his intellect?\"",
+      "footer_note": "true if true"
+    },
+    "links": [
+      {
+        "name": "home",
+        "id": "tomodachi"
+      }
+    ]
+  },
+  "ace attorney": {
+    "title": "ace attorney",
+    "theme": "7",
+    "image": "images/ace.jpg",
+    "left_panel": {
+      "inventory": [
+        "Contact with autism is one of my most beloved experiences",
+        "I ran into this cafe in Guwahati once run by a Japanese Vtuber",
+        "He had the entire library of every Shonen Jump series.",
+        "Cutouts of his vtuber persona",
+        "Love Live and Idolm@ster music playing all the time"
+      ],
+      "stats": "3 February 2025"
+    },
+    "right_panel": {
+      "content": "Had a dream where some guy nearby was the biggest Ace Attorney fan in the country, he lived in a humble old shack but had piles of manga in the room and cutouts of the main characters",
+      "footer_note": "I zoned out of the AA franchise when i didnt have buttons for immediate punchgratification"
+    },
+    "links": [
+      {
+        "name": "home",
+        "id": "tomodachi"
+      }
+    ]
+  },
+  "anime store": {
+    "title": "anime store",
+    "theme": "8",
+    "image": "images/anime.jpg",
+    "left_panel": {
+      "inventory": [
+        "Original Ken Sugimori art is Hauntology in action",
+        "They have this faded watercolor look to them that is now attributed to poor scanners.",
+        "Same goes for the pastel pink Sailor Moon cels, they were corrupted VHS tapes.",
+        "Truly the feathered dinosaurs and colored Greek statues of nerd media"
+      ],
+      "stats": "31 January 2025"
+    },
+    "right_panel": {
+      "content": "Had a dream where i went into this anime merch store that was clearly failing, like it was only 30% usual 3d printed stuff, 30% normal showpieces and 30% grocery. I was getting sad at Nivi's sponsors and then i found this sick RBY themed jacket and shoes.\n\nRed was Pikachu themed(?)\n\nBlue had pixel art\n\nGreen had a dope magikarp shoes and fisherman jacket\n\nYellow was more normiechu\n",
+      "footer_note": "Dead Malls are also Hauntology in action. They represented inaccessible territory to me as a child, during their \"alive\" state, because I had no ability to visit them on my own. I fetishized them as \"where western kids third space\" and assumed \"youth culture\" developed organically there."
     },
     "links": [
       {
