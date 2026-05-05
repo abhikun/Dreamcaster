@@ -304,6 +304,69 @@
         "id": "tomodachi"
       }
     ]
+  },
+  "kumbhanda": {
+    "title": "kumbhanda",
+    "theme": "22",
+    "image": "images/kumbhanda.jpg",
+    "left_panel": {
+      "inventory": [
+        "A Kumbhanda is a Buddhist fae creature, I do not even remember why i made that name association- it told me what it was itself"
+      ],
+      "stats": "1 May 2024"
+    },
+    "right_panel": {
+      "content": "Had a dream where i met a reincarnated kumbhanda who appeared as an old man and his beast form was a disguised car that could change panels and lights",
+      "footer_note": "Something something fascination of fairy storytelling to layer on with the tactilely absurd- why else would a car need to be able change panels on the go"
+    },
+    "links": [
+      {
+        "name": "home",
+        "id": "tomodachi"
+      }
+    ]
+  },
+  "comic con": {
+    "title": "comic con",
+    "theme": "12",
+    "image": "images/comic.jpg",
+    "left_panel": {
+      "inventory": [
+        "Sheik in the smash bros series has a classic edgy ninja silhouette. It has ingrained in me a brain association of moving in triangular divekick motions- the momentum of a kunai piercing and bouncing"
+      ],
+      "stats": "2 May 2024"
+    },
+    "right_panel": {
+      "content": "Had a dream where nish was at comic con and he was working on some stall with 80 sheik cosplayers and he was also somehow dating them all",
+      "footer_note": "Nish used to be the \"arrested development serial one-generation-down dater\": a label I am apt to apply to myself now, navigating autistic perception mismatches of what courtship means and the generational privilege-sexism drift;ie because of sexist attitudes women will be less likely to be in my values space unless they're a socioeconomic class above me or a temporal generation below me"
+    },
+    "links": [
+      {
+        "name": "home",
+        "id": "tomodachi"
+      }
+    ]
+  },
+  "AI company": {
+    "title": "AI company",
+    "theme": "13",
+    "image": "images/aiwaifu.jpg",
+    "left_panel": {
+      "inventory": [
+        "I oscillate between how \"cool and whimsical\" a tech company should be- from \"this is exactly what would make my parents mad\" to \"you're not irony literate enough to embody these gifts at face value\""
+      ],
+      "stats": "5 May 2026"
+    },
+    "right_panel": {
+      "content": "Had a dream where i was given reins to some company and they were bankrupt because the previous guy invested in waifu AI for every single thing. Like every object would have an anime figurine next to it with AI, even the microwave.To use the TV you had to first beat an AI called Buddha in Tekken, some other guy was trying it but the stand holding the TV was broken in so many places I was holding it up the entire time",
+      "footer_note": "Honestly impressed with the worldbuilding, cynical leftist online skit-esque"
+    },
+    "links": [
+      {
+        "name": "home",
+        "id": "tomodachi"
+      }
+    ]
   }
   
 }
