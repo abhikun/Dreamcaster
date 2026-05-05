@@ -138,6 +138,12 @@
         <div id="story-content"></div>
         <div id="footer-note"></div>
         <div class="nav-links" id="links-container"></div>
+		<div style="margin-top: 30px; border-top: 1px solid var(--dim); padding-top: 20px;">
+    <label style="font-size: 0.7rem; opacity: 0.6; display: block; margin-bottom: 5px;">Jump to Dream #</label>
+    <input type="number" id="dream-index" min="1" style="background: transparent; border: 1px solid var(--text); color: var(--text); font-family: inherit; width: 50px; padding: 2px 5px;">
+    <button onclick="jumpToDream()" style="background: var(--text); color: var(--bg); border: none; font-family: inherit; cursor: pointer; padding: 3px 10px;">Go</button>
+    <span id="dream-count" style="font-size: 0.7rem; opacity: 0.6; margin-left: 10px;"></span>
+</div>
         <a href="index.html" class="wander-btn">[ WANDER TO RANDOM DREAM ]</a>
     </main>
 
@@ -154,7 +160,23 @@ const THEMES = {
     "8": { bg: "#f8d8d8", text: "#383880" }, // Super Mario Pastel
     "9": { bg: "#000000", text: "#ff0000" }  // Virtual Boy Red
 };
+async function jumpToDream() {
+    const val = parseInt(document.getElementById('dream-index').value);
+    if (isNaN(val)) return;
 
+    const response = await fetch('dreams.json');
+    const database = await response.json();
+    const keys = Object.keys(database);
+
+    // Arrays start at 0, but users count from 1
+    const targetId = keys[val - 1];
+
+    if (targetId) {
+        window.location.search = `?dream=${targetId}`;
+    } else {
+        alert("That dream hasn't been dreamt yet.");
+    }
+}
 async function init() {
     const params = new URLSearchParams(window.location.search);
     let dreamId = params.get('dream');
@@ -169,6 +191,13 @@ async function init() {
         }
 
         const data = database[dreamId];
+		// ... after const database = await response.json();
+const keys = Object.keys(database);
+document.getElementById('dream-count').innerText = `of ${keys.length}`;
+
+// Set the input value to the current dream's number
+const currentIdx = keys.indexOf(dreamId) + 1;
+document.getElementById('dream-index').value = currentIdx;
 
         // 2. THEME LOOKUP LOGIC
         let theme = THEMES["1"]; 

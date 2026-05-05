@@ -91,7 +91,7 @@
         "Fascist projection of a pure state, free from degeneracy?",
         "I watched the party scene from Lost in Translation too"
       ],
-      "stats": "5 May 2026"
+      "stats": " 25 August 2025"
     },
     "right_panel": {
       "content": "Had a dream where nivi organized a nobel prize equivalent for Japanese residents in india. The winner had introduced weed to japan or some synthetic equivalent and nivi was already a pro at using it",
@@ -103,5 +103,92 @@
         "id": "tomodachi"
       }
     ]
+  },
+  "Capitalist realism": {
+    "title": "Capitalist realism",
+    "theme": "9",
+    "image": "images/realism.jpg",
+    "left_panel": {
+      "inventory": [
+        "I had gifted K a copy of Mark Fisher's book once",
+        "My attempts at converting people into debatebros was looking futile"
+      ],
+      "stats": "August 20 2025"
+    },
+    "right_panel": {
+      "content": "Had a dream where K took me to a high school library to steal a book about economics from there",
+      "footer_note": "I like acid marxism because dude acid lmao"
+    },
+    "links": [
+      {
+        "name": "home",
+        "id": "tomodachi"
+      }
+    ]
+  },
+  "Psylocke": {
+    "title": "Psylocke",
+    "theme": "4",
+    "image": "images/psylocke.jpg",
+    "left_panel": {
+      "inventory": [
+        "hehehaha dommy mommy meme xddd",
+        "I am getting ulted on the street"
+      ],
+      "stats": "24 May 2025"
+    },
+    "right_panel": {
+      "content": "Had a nap dream where psylocke kept ulting me when i try to sleep and i mean it literally not metaphorically",
+      "footer_note": "it means my body physically hurt"
+    },
+    "links": [
+      {
+        "name": "home",
+        "id": "tomodachi"
+      }
+    ]
+  },
+  "Nuke": {
+    "title": "Nuke",
+    "theme": "6",
+    "image": "images/nuke.jpg",
+    "left_panel": {
+      "inventory": [
+        "My dead dad was also there"
+      ],
+      "stats": "11 May 2025"
+    },
+    "right_panel": {
+      "content": "Had a dream where i died because i was in Bangalore as the nuke fell there.\nI was able to experience death on mental command, like turned off sensation on all my nerve endings irl.",
+      "footer_note": "Blunt metaphor for nuking my Bangalore dreams"
+    },
+    "links": [
+      {
+        "name": "home",
+        "id": "tomodachi"
+      }
+    ]
+  },
+  "Typhlosion": {
+    "title": "Typhlosion",
+    "theme": "3",
+    "image": "images/typhlosion.jpg",
+    "left_panel": {
+      "inventory": [
+        "I check to see if the grass is anime or pixelated"
+      ],
+      "stats": "5 May 2026"
+    },
+    "right_panel": {
+      "content": "Had a dream where i got a machine and could listen to my pet typhlosion.\nWe were travelling together.\n\nMy typhlosion♀ was having trouble courting a male one so i used the pokemon speech machine to help",
+      "footer_note": "No projection of second person desires here"
+    },
+    "links": [
+      {
+        "name": "home",
+        "id": "tomodachi"
+      }
+    ]
   }
+  
 }
