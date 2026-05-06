@@ -431,6 +431,110 @@
         "id": "tomodachi"
       }
     ]
+  },
+  "selfie": {
+    "title": "selfie",
+    "theme": "20",
+    "image": "images/andro.jpg",
+    "left_panel": {
+      "inventory": [
+        "Is Bjorn Anderson to blame for all Bishonen dysmorphia"
+      ],
+      "stats": "16 February 2024"
+    },
+    "right_panel": {
+      "content": "Had a dream where i took multiple selfies of me androgynously passing\n\nBecause i played lies of p before sleep\n\ncompared to most 'photography' dreams, i was not prevented from taking it via bullshit reasons",
+      "footer_note": "Supposedly in the sexist hellpile of South Korea, Bishonen men are marketed as catering to the \"Older Sister\" gaze"
+    },
+    "links": [
+      {
+        "name": "home",
+        "id": "tomodachi"
+      }
+    ]
+  },
+  "vr dream": {
+    "title": "vr dream",
+    "theme": "12",
+    "image": "images/vr.jpg",
+    "left_panel": {
+      "inventory": [
+        "My \"VR experiments\" have led me to strongly believe that \"bodily attraction\", \"presence\" are all phantom sensations, layered deep under the cultural/psychosexual gaze. Something about a figure resembling a human overwhelming your field of view is all it takes to fool your brain you can feel their body heat or presence"
+      ],
+      "stats": "6 February 2024"
+    },
+    "right_panel": {
+      "content": "Had a dream where I was playing this run-of-the-mill AR shooting game where you had to shoot zombies with a physical gun\n\nAnd then one bit me in the leg and it was an irl monkey",
+      "footer_note": "The Apple Vision Pro was out recently and making unrequited buzz as usual"
+    },
+    "links": [
+      {
+        "name": "home",
+        "id": "tomodachi"
+      }
+    ]
+  },
+  "cyberpunk": {
+    "title": "cyberpunk",
+    "theme": "2",
+    "image": "images/cyberpunk.jpg",
+    "left_panel": {
+      "inventory": [
+        "I love projecting feelings of the \"high tech low life\" aesthetic into the gullies of Indian electronics markets. Purportedly only for supplying parts for repair components and student projects, the lack of informational overview among the sellers themselves is fascinating.They often don’t know what a part is for in a broader sense, yet somehow stock the most obscure, hyper-specific hacks.. There is also an amazing construction-from-first-principles culture where i saw a store getting components for Fight sticks (literally no market here btw) but they used them to jerry rig a portable NES clone, complete in a varnished-in-desi-gaze wooden box"
+      ],
+      "stats": "2 February 2024"
+    },
+    "right_panel": {
+      "content": "Had a dream where i was in a cyberpunk future and things were so bad everyone had to switch off their lights so that cars could recharge. Also I was spiderman",
+      "footer_note": "The spiderman part was just my subconscious bypassing the traversal problem asap."
+    },
+    "links": [
+      {
+        "name": "home",
+        "id": "tomodachi"
+      }
+    ]
+  },
+  "erdtree": {
+    "title": "erdtree",
+    "theme": "7",
+    "image": "images/jrpg.jpg",
+    "left_panel": {
+      "inventory": [
+        "Of all mythological symbolism, the Tree of Life is not one I am significantly fixated on. Perhaps it has just transferred onto the realm of stock, though clever interpretations are always here and there."
+      ],
+      "stats": "1 February 2024"
+    },
+    "right_panel": {
+      "content": "Had a dream where there was this giant jrpg tree behind my house and I'd take super zoomed in videos of the village below it. Drove down to the village below but you could only learn mundane magic like catching fish or something",
+      "footer_note": "I think I had minor Tetris effect when Elden Ring had just come out, always looking out for the guidance of grace out of the corner of my eye in the wilderness"
+    },
+    "links": [
+      {
+        "name": "home",
+        "id": "tomodachi"
+      }
+    ]
+  },
+  "metroidbrainia": {
+    "title": "metroidbrainia",
+    "theme": "3",
+    "image": "images/metroid.jpg",
+    "left_panel": {
+      "inventory": [
+        "Metroidbrainia games are defined by knowledge-and-puzzle gating, often in the context of a timeloop."
+      ],
+      "stats": "22 January 2024"
+    },
+    "right_panel": {
+      "content": "I'm surprised. I left no notes, other than \"it sure was a metroidbrainia\"\n\nProbably a satisfying one at that",
+      "footer_note": "Archons and muses of Game Dev, stop abandoning me"
+    },
+    "links": [
+      {
+        "name": "home",
+        "id": "tomodachi"
+      }
+    ]
   }
-  
 }
